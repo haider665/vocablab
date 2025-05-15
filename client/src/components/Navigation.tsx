@@ -50,38 +50,40 @@ const Navigation = ({ currentPath }: NavigationProps) => {
                   ${isMobile ? "flex-1" : "mb-4"}
                 `}
               >
-                <Link href={item.path}>
-                  <a className={`
+                <div
+                  className={`
+                    cursor-pointer
                     ${isActive ? 'text-primary' : 'text-neutral-600 hover:text-primary'}
                     ${isMobile 
                       ? 'flex flex-col items-center py-2' 
                       : 'flex items-center px-4 py-3'
                     }
+                  `}
+                  onClick={() => window.location.href = item.path}
+                >
+                  <item.icon className={`
+                    ${isMobile ? 'h-5 w-5' : 'h-5 w-5'}
+                  `} />
+                  
+                  <span className={`
+                    ${isMobile 
+                      ? 'text-xs mt-1' 
+                      : 'ml-4 text-sm font-medium hidden sm:block'
+                    }
                   `}>
-                    <item.icon className={`
-                      ${isMobile ? 'h-5 w-5' : 'h-5 w-5'}
-                    `} />
-                    
-                    <span className={`
-                      ${isMobile 
-                        ? 'text-xs mt-1' 
-                        : 'ml-4 text-sm font-medium hidden sm:block'
-                      }
-                    `}>
-                      {item.label}
-                    </span>
-                    
-                    {isMobile ? (
-                      <span 
-                        className={`nav-indicator absolute bottom-0 left-0 right-0 bg-primary rounded-t-lg ${isActive ? 'h-1' : 'h-0'}`}
-                      ></span>
-                    ) : (
-                      <span 
-                        className={`nav-indicator absolute left-0 top-0 bottom-0 bg-primary rounded-r-lg ${isActive ? 'w-1' : 'w-0'}`}
-                      ></span>
-                    )}
-                  </a>
-                </Link>
+                    {item.label}
+                  </span>
+                  
+                  {isMobile ? (
+                    <span 
+                      className={`nav-indicator absolute bottom-0 left-0 right-0 bg-primary rounded-t-lg ${isActive ? 'h-1' : 'h-0'}`}
+                    ></span>
+                  ) : (
+                    <span 
+                      className={`nav-indicator absolute left-0 top-0 bottom-0 bg-primary rounded-r-lg ${isActive ? 'w-1' : 'w-0'}`}
+                    ></span>
+                  )}
+                </div>
               </li>
             );
           })}
