@@ -33,10 +33,17 @@ const Navigation = ({ currentPath }: NavigationProps) => {
       transition={{ duration: 0.3, delay: 0.3 }}
     >
       <div className="h-full">
+        {!isMobile && (
+          <div className="px-4 py-4 mb-4 text-center hidden sm:block">
+            <h2 className="text-xl font-semibold font-poppins text-neutral-800">
+              <span className="text-primary">Vocab</span><span className="text-secondary">Vision</span>
+            </h2>
+          </div>
+        )}
         <ul className={`
           ${isMobile 
             ? "flex justify-between px-2 py-1" 
-            : "flex flex-col py-6 h-full"
+            : "flex flex-col px-2 py-2 h-full"
           }
         `}>
           {navItems.map((item) => {
@@ -53,22 +60,23 @@ const Navigation = ({ currentPath }: NavigationProps) => {
                 <div
                   className={`
                     cursor-pointer
-                    ${isActive ? 'text-primary' : 'text-neutral-600 hover:text-primary'}
+                    ${isActive ? 'text-primary font-medium' : 'text-neutral-600 hover:text-primary'}
                     ${isMobile 
                       ? 'flex flex-col items-center py-2' 
                       : 'flex items-center px-4 py-3'
                     }
+                    ${item.path === "/" && !isMobile ? 'bg-primary/5 rounded-lg' : ''}
                   `}
                   onClick={() => window.location.href = item.path}
                 >
                   <item.icon className={`
-                    ${isMobile ? 'h-5 w-5' : 'h-5 w-5'}
+                    ${isMobile ? 'h-5 w-5' : item.path === "/" ? 'h-6 w-6' : 'h-5 w-5'}
                   `} />
                   
                   <span className={`
                     ${isMobile 
                       ? 'text-xs mt-1' 
-                      : 'ml-4 text-sm font-medium hidden sm:block'
+                      : `ml-4 text-sm ${item.path === "/" ? 'font-semibold' : 'font-medium'} hidden sm:block`
                     }
                   `}>
                     {item.label}
