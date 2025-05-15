@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Header from "../components/Header";
 import SearchSection from "../components/SearchSection";
@@ -7,9 +7,8 @@ import RecentlySearched from "../components/RecentlySearched";
 import QuickActions from "../components/QuickActions";
 import WordOfTheDay from "../components/WordOfTheDay";
 import LearningProgress from "../components/LearningProgress";
-import Navigation from "../components/Navigation";
 import { Word } from "@shared/schema";
-import { fetchWordDefinition, fetchRandomWord } from "@/lib/api";
+import { fetchWordDefinition } from "@/lib/api";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
@@ -98,10 +97,10 @@ const HomePage = ({ user }: HomePageProps) => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto relative pb-16">
+    <div className="max-w-screen-xl mx-auto">
       <Header user={user} />
       
-      <main className="pt-16 pb-4 px-4">
+      <main className="pt-6 px-4">
         <SearchSection
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
@@ -135,8 +134,6 @@ const HomePage = ({ user }: HomePageProps) => {
           isLoading={isLoadingProgress}
         />
       </main>
-      
-      <Navigation currentPath="/" />
     </div>
   );
 };

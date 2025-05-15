@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import Header from "../components/Header";
-import Navigation from "../components/Navigation";
 import { apiRequest } from "@/lib/queryClient";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -46,10 +45,10 @@ const SavedWordsPage = ({ user }: SavedWordsPageProps) => {
   };
 
   return (
-    <div className="max-w-screen-xl mx-auto relative pb-16">
+    <div className="max-w-screen-xl mx-auto">
       <Header user={user} />
       
-      <main className="pt-16 pb-4 px-4">
+      <main className="pt-6 px-4">
         <div className="mt-4">
           <h2 className="text-2xl font-semibold font-poppins text-neutral-800 mb-4">
             My Saved Words
@@ -134,8 +133,6 @@ const SavedWordsPage = ({ user }: SavedWordsPageProps) => {
           )}
         </div>
       </main>
-      
-      <Navigation currentPath="/saved" />
     </div>
   );
 };
