@@ -24,7 +24,7 @@ function App() {
       <Navigation currentPath={location} />
       
       <div className={`
-        ${isMobile ? 'pt-32 pb-4' : 'ml-16 sm:ml-64 pt-4 pb-4'}
+        ${isMobile ? 'pt-40 pb-4' : 'ml-16 sm:ml-64 pt-16 pb-4'}
       `}>
         <Switch>
           <Route path="/" component={() => <HomePage user={currentUser} />} />
