@@ -1,0 +1,34 @@
+App Dashboard - Rough Layout Idea:
+
+Imagine the main screen a user sees after logging in.
+
+    1. Top Section (Prominent Search):
+        i. Large, Centered Search Field: Taking up a significant portion of the top area to emphasize the core functionality. It should have a clear placeholder like "Search for a word..."
+        ii. Clear "Search" Button: Positioned prominently, likely to the right of or below the search field. Consider using a magnifying glass icon in addition to or instead of text.
+
+    2. Below the Search Area (Recent Activity & Quick Actions):
+        i. "Recently Searched" Section (Horizontal Scroll): A visually distinct section displaying the last 3-5 words the user looked up. Each entry could show the word and a small preview (maybe the image or a brief definition).
+        ii. "Quick Actions" Buttons/Icons: A row of easily accessible buttons or icons for core learning features:
+            . "My Saved Words" (perhaps with a bookmark icon)
+            . "Review Flashcards" (perhaps with a card or lightbulb icon)
+            . "Take a Quiz" (perhaps with a question mark or play icon)
+
+    3. Navigation Bar (Bottom or Top - Consider Mobile Conventions):
+        i. Home/Dashboard Icon: To return to this main screen.
+        ii. Saved Words Icon: Leading to the user's list of saved vocabulary.
+        iii. Quiz/Practice Icon: Access to different quiz formats and practice sessions.
+        iv. Progress/Stats Icon: Visual representation of the user's learning journey (e.g., number of words learned, quiz scores).
+        v. Profile/Settings Icon: Access to user account settings, preferences, etc.
+
+    4. Main Content Area (Dynamic Display):
+        i. This area will primarily be used to display the results of a word search. When a user searches for a word, this space will populate with:
+            . The searched word (large, clear typography).
+            . Pronunciation (audio icon).
+            . Definition(s).
+            . Visual(s) - Image or potentially a short video clip, taking up a significant portion of this area.
+            . Synonyms and Antonyms (clearly labeled sections).
+            . Example Sentences (in a distinct format).
+
+   5. Optional Elements:
+        i. "Word of the Day" Section: A small, engaging section displaying a new word with its visual and brief definition.
+        ii. Personalized Learning Tips: Short, encouraging messages or suggestions based on the user's activity.
