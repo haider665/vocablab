@@ -5,6 +5,21 @@ import { BookmarkIcon, VolumeIcon, GraduationCapIcon, Layers3Icon } from "lucide
 import { Word } from "@shared/schema";
 import { motion } from "framer-motion";
 import { playAudio } from "@/lib/utils";
+import quarrelImage from "@/assets/quarrel.jpeg";
+import victoryImage from "@/assets/victory.jpeg";
+import courageImage from "@/assets/courage.jpeg";
+import sycophantImage from "@/assets/sycophant.jpeg";
+import gratitudeImage from "@/assets/gratitude.jpeg";
+import noImage from "@/assets/noImage.png";
+
+
+const wordImageMap: Record<string, string> = {
+  quarrel: quarrelImage,
+  victory: victoryImage,
+  courage: courageImage,
+  sycophant: sycophantImage,
+  gratitude: gratitudeImage,
+};
 
 interface WordDisplayProps {
   word: Partial<Word>;
@@ -117,23 +132,30 @@ const WordDisplay = ({ word, onSave }: WordDisplayProps) => {
         
         {/* Word Visualization */}
         <div className="md:w-1/2 flex flex-col items-center">
-          <div className="rounded-xl overflow-hidden shadow-md w-full max-w-md h-64 bg-neutral-200">
-            {word.imageUrl ? (
-              <AspectRatio ratio={16/9}>
+          <div className="rounded-xl overflow-hidden w-full max-w-md h-64 bg-neutral-200">
+            {word.word && wordImageMap[word.word] ? (
+              <AspectRatio ratio={4/3}>
                 <img 
-                  src={word.imageUrl} 
+                  src={wordImageMap[word.word]} 
                   alt={`Visual representation of the word ${word.word}`} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </AspectRatio>
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-neutral-400">
-                No image available
-              </div>
+              <AspectRatio ratio={4/3}>
+                <img 
+                  src={noImage} 
+                  alt={`Visual representation of the word ${word.word}`} 
+                  className="w-full h-auto object-contain"
+                />
+              </AspectRatio>
+              // <div className="w-full h-full flex items-center justify-center text-neutral-400">
+              //   No image available
+              // </div>
             )}
           </div>
           
-          <div className="w-full mt-4">
+          {/* <div className="w-full mt-4">
             <div className="grid grid-cols-2 gap-3">
               <Button variant="outline" className="flex items-center justify-center bg-neutral-100 hover:bg-neutral-200 transition-colors text-neutral-700 py-2">
                 <GraduationCapIcon className="mr-2 h-4 w-4" />
@@ -144,7 +166,7 @@ const WordDisplay = ({ word, onSave }: WordDisplayProps) => {
                 <span className="text-sm font-medium">Flashcard</span>
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.section>
