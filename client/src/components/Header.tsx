@@ -18,6 +18,13 @@ const Header = ({ user }: HeaderProps) => {
           </h1>
         </div>
         <div className="flex items-center space-x-3">
+          <Button
+            variant="ghost"
+            className="px-3 py-2 rounded-md text-primary hover:bg-neutral-100 hover:text-secondary font-medium"
+            onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScyFHmxGjD965l-5-c4mtwvzTr7-4JlB96_VhfwiGyEi_OgNQ/viewform?usp=sharing&ouid=113835010931631825682', '_blank')}
+          >
+            Survey
+          </Button>
           <Button variant="ghost" size="icon" className="p-2 rounded-full hover:bg-neutral-100" aria-label="Notifications">
             <BellIcon className="h-5 w-5 text-neutral-600" />
           </Button>

@@ -6,6 +6,20 @@ import { Button } from "@/components/ui/button";
 import { Word } from "@shared/schema";
 import { motion } from "framer-motion";
 import { truncate } from "@/lib/utils";
+import quarrelImage from "@/assets/quarrel.jpeg";
+import victoryImage from "@/assets/victory.jpeg";
+import courageImage from "@/assets/courage.jpeg";
+import sycophantImage from "@/assets/sycophant.jpeg";
+import gratitudeImage from "@/assets/gratitude.jpeg";
+import noImage from "@/assets/noImage.png";
+
+const wordImageMap: Record<string, string> = {
+  quarrel: quarrelImage,
+  victory: victoryImage,
+  courage: courageImage,
+  sycophant: sycophantImage,
+  gratitude: gratitudeImage,
+};
 
 interface RecentlySearchedProps {
   words: Partial<Word>[];
@@ -124,16 +138,18 @@ const RecentlySearched = ({ words, isLoading }: RecentlySearchedProps) => {
                       {truncate(word.definition || "", 60)}
                     </p>
                     <div className="h-24 bg-neutral-200 rounded-lg mt-2 overflow-hidden">
-                      {word.imageUrl ? (
+                      {word.word && wordImageMap[word.word] ? (
                         <img 
-                          src={word.imageUrl} 
+                          src={wordImageMap[word.word]} 
                           alt={`Visual representation of ${word.word}`}
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center text-neutral-400">
-                          No image
-                        </div>
+                        <img 
+                          src={noImage} 
+                          alt={`Visual representation of ${word.word}`}
+                          className="w-full h-full object-cover"
+                        />
                       )}
                     </div>
                   </CardContent>
